@@ -1,0 +1,30 @@
+<body>
+<h2>Follow these steps</h2>
+<ul>
+    <li>Login</li>
+    <li>fill out the first text box and hit enter</li>
+    <li>fill out the second text box and hit enter</li>
+    <li>click posts</li>
+    <li>reload the page</li>
+</ul>
+</body>
+<template name="create">
+    {{> loginButtons}}
+    {{#if currentUser}}
+        <form id="authorForm">
+            <input type="text" id="author" name="author" placeholder="type anything & enter"/>
+        </form>
+        {{#if authorId}}
+            <form id="postForm">
+                <input type="text" id="post" name="post" placeholder="type anything & enter" />
+            </form>
+        {{/if}}
+    {{/if}}
+    <a href="/posts">Posts</a>
+</template>
+<template name="posts">
+    {{#each posts}}
+        {{post}}
+    {{/each}}
+    <a href="/">Create</a>
+</template>
